@@ -1,15 +1,15 @@
 DIFFERENT WEB DEV PROJECTS:
 
 
-P1 = TASK MANAGER APP
-P2 = WEATHER APP
-P3 = E COMMERCE
-P4 = expense tracker
-P5 = QUIZ
-P6 = 
-P7 = 
-P8 = 
-P9 = 
-P10 = 
-P11= 
-P12 = 
+P1 = TASK MANAGER APP;
+P2 = WEATHER APP;
+P3 = E COMMERCE;
+P4 = expense tracker;
+P5 = QUIZ;
+P6 = ;
+P7 = ;
+P8 = ;
+P9 = ;
+P10 = ;
+P11= ;
+P12 = ;
