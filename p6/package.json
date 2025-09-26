@@ -1,0 +1,17 @@
+{
+  "name": "h-tube",
+  "version": "1.0.0",
+  "description": "inspired by youtube",
+  "keywords": [
+    "nodejs",
+    "express",
+    "backend"
+  ],
+  "license": "ISC",
+  "author": "hitendra singh",
+  "type": "commonjs",
+  "main": "src/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  }
+}
