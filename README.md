@@ -9,7 +9,7 @@ P4 = expense tracker
 P5 = QUIZ
 
 WITH BACKEND
-P6 = H-tube; 
+P6 = H-tube [ MEGA ]; 
 P7 = 
 P8 = 
 P9 = 
