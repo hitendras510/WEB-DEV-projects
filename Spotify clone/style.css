@@ -4,7 +4,8 @@
 
 /* Clean dark background */
 body{
-    background-color: #0d0d0d;
+    background: url('bg.jpg') no-repeat center center fixed;
+    background-size: cover;
     color: #e5e5e5;
     font-family: 'Varela Round', sans-serif;
 }
@@ -53,9 +54,10 @@ nav ul li:hover{
 
 .container{
     min-height: 72vh;
-    background-color: #151515;
-    background-image: url('bg.jpg');
-    background-size: cover;
+    background: rgba(0,0,0,0.25);
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+    background-image: none;
     color: #e5e5e5;
     display: flex;
     margin: 23px auto;
@@ -281,7 +283,6 @@ nav ul li:hover{
     box-shadow: 0 -8px 25px rgba(255,255,255,0.09);
 }
 
-
 /* --- ADVANCED PREMIUM EFFECTS ADDED --- */
 
 /* Rotating glowing album art when song is playing */
@@ -295,9 +296,9 @@ nav ul li:hover{
 
 /* Glassmorphism background effect */
 .container{
-    background: rgba(20,20,20,0.55);
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
+    background: rgba(20,20,20,0.25);
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
     border: 1px solid rgba(255,255,255,0.08);
 }
 
@@ -314,16 +315,7 @@ nav ul li:hover{
 }
 
 /* Neon fading edges for entire screen */
-body::after{
-    content: "";
-    position: fixed;
-    width: 100%;
-    height: 100%;
-    top: 0; left: 0;
-    pointer-events: none;
-    background: radial-gradient(circle at top left, rgba(255,255,255,0.08), transparent 70%),
-                radial-gradient(circle at bottom right, rgba(255,255,255,0.05), transparent 80%);
-}
+body::after{ display:none; }
 
 /* Glowing scrollbar */
 ::-webkit-scrollbar {
@@ -343,9 +335,7 @@ body::after{
 }
 
 /* Floating glow particles */
-body::before{
-    animation: floatParticles 18s infinite ease-in-out;
-}
+body::before{ display:none; }
 @keyframes floatParticles {
     0% { opacity: 0.2; transform: translateY(0px); }
     50% { opacity: 0.35; transform: translateY(-25px); }
