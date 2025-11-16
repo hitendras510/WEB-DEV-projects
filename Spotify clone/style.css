@@ -1,7 +1,12 @@
+/* Minimal Dark + Subtle Glow Spotify Theme */
 @import url('https://fonts.googleapis.com/css2?family=Ubuntu&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Varela+Round&display=swap');
+
+/* Clean dark background */
 body{
-    background-color: antiquewhite;
+    background-color: #0d0d0d;
+    color: #e5e5e5;
+    font-family: 'Varela Round', sans-serif;
 }
 
 *{
@@ -11,6 +16,8 @@ body{
 
 nav{
     font-family: 'Ubuntu', sans-serif;
+    background: #111;
+    box-shadow: 0 0 6px rgba(255,255,255,0.08);
 }
 
 nav ul{
@@ -18,13 +25,19 @@ nav ul{
     align-items: center;
     list-style-type: none;
     height: 65px;
-    background-color: black;
-    color: white;
+    background-color: #111;
+    color: #e5e5e5;
 }
 
 nav ul li{
     padding: 0 12px;
+    cursor: pointer;
+    transition: 0.2s;
 }
+nav ul li:hover{
+    color: #ffffff;
+}
+
 .brand img{
     width: 44px;
     padding: 0 8px;
@@ -35,43 +48,64 @@ nav ul li{
     align-items: center;
     font-weight: bolder;
     font-size: 1.3rem;
+    color: #fff;
 }
 
 .container{
     min-height: 72vh;
-    background-color: black;
-    color: white;
-   font-family: 'Varela Round', sans-serif;
-   display: flex;
-   margin: 23px auto;
-   width: 70%;
-   border-radius: 12px;
-   padding: 34px;
-   background-image: url('bg.jpg');
+    background-color: #151515;
+    background-image: url('bg.jpg');
+    background-size: cover;
+    color: #e5e5e5;
+    display: flex;
+    margin: 23px auto;
+    width: 70%;
+    border-radius: 12px;
+    padding: 34px;
+    box-shadow: 0 0 12px rgba(255,255,255,0.07);
 }
 
 .bottom{
     position: sticky;
     bottom: 0;
     height: 130px;
-    background-color: black;
-    color: white;
+    background-color: #111;
+    color: #fff;
     display: flex;
     justify-content: center;
     align-items: center;
-    flex-direction: column; 
+    flex-direction: column;
+    box-shadow: 0 0 8px rgba(255,255,255,0.08);
 }
 
 .icons{
-    margin-top: 14px; 
+    margin-top: 14px;
 }
 .icons i{
     cursor: pointer;
+    font-size: 26px;
+    color: #ddd;
+    transition: 0.25s;
+}
+.icons i:hover{
+    color: #fff;
+    text-shadow: 0 0 6px rgba(255,255,255,0.3);
 }
 
 #myProgressBar{
-    width: 80vw; 
+    width: 80vw;
     cursor: pointer;
+    height: 6px;
+    border-radius: 8px;
+    background: #333;
+}
+#myProgressBar::-webkit-slider-thumb{
+    -webkit-appearance: none;
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    background: #fff;
+    box-shadow: 0 0 6px rgba(255,255,255,0.6);
 }
 
 .songItemContainer{
@@ -81,13 +115,20 @@ nav ul li{
 .songItem{
     height: 50px;
     display: flex;
-    background-color: white;
-    
-    color: black;
+    background-color: #1b1b1b;
+    color: #e0e0e0;
     margin: 12px 0;
     justify-content: space-between;
     align-items: center;
     border-radius: 34px;
+    padding: 5px;
+    transition: 0.25s;
+    box-shadow: 0 0 8px rgba(255,255,255,0.05) inset;
+}
+
+.songItem:hover{
+    background-color: #222;
+    box-shadow: 0 0 10px rgba(255,255,255,0.08) inset;
 }
 
 .songItem img{
@@ -98,16 +139,21 @@ nav ul li{
 
 .timestamp{
     margin: 0 23px;
+    color: #ccc;
 }
-
 .timestamp i{
     cursor: pointer;
+    transition: 0.3s;
+}
+.timestamp i:hover{
+    color: #fff;
 }
 
 .songInfo{
     position: absolute;
     left: 10vw;
     font-family: 'Varela Round', sans-serif;
+    color: #fff;
 }
 
 .songInfo img{
@@ -115,8 +161,203 @@ nav ul li{
     transition: opacity 0.4s ease-in;
 }
 
+/* Minimal clean responsive */
 @media only screen and (max-width: 1100px) {
     body {
-      background-color: red;
+        background-color: #141414;
     }
-  }
+}
+
+/* --- Subtle Premium Glow Effects Added --- */
+
+/* Soft outer glow around main container */
+.container{
+    box-shadow: 0 0 18px rgba(255,255,255,0.06), 0 0 28px rgba(255,255,255,0.04);
+}
+
+/* Glow when hovering on song items */
+.songItem:hover{
+    background-color: #242424;
+    box-shadow: 0 0 14px rgba(255,255,255,0.10), 0 0 22px rgba(255,255,255,0.05) inset;
+}
+
+/* Soft breathing glow on control icons */
+.icons i{
+    animation: softGlow 2.5s infinite ease-in-out;
+}
+@keyframes softGlow {
+    0% { text-shadow: 0 0 4px rgba(255,255,255,0.3); }
+    50% { text-shadow: 0 0 12px rgba(255,255,255,0.5); }
+    100% { text-shadow: 0 0 4px rgba(255,255,255,0.3); }
+}
+
+/* Glow under active song text */
+.songInfo{
+    text-shadow: 0 0 8px rgba(255,255,255,0.25);
+}
+
+/* Progress bar glow */
+#myProgressBar{
+    box-shadow: 0 0 10px rgba(255,255,255,0.15);
+}
+#myProgressBar::-webkit-slider-thumb{
+    box-shadow: 0 0 12px rgba(255,255,255,0.5);
+}
+
+/* Bottom player soft top glow */
+.bottom{
+    box-shadow: 0 -4px 20px rgba(255,255,255,0.07);
+}
+
+/* --- Enhanced Glow Effects (Stronger, Cleaner, Premium) --- */
+
+/* Glowing border on container */
+.container{
+    border: 1px solid rgba(255,255,255,0.08);
+    box-shadow: 0 0 22px rgba(255,255,255,0.09), 0 0 40px rgba(255,255,255,0.06);
+    transition: 0.4s ease-in-out;
+}
+.container:hover{
+    box-shadow: 0 0 28px rgba(255,255,255,0.12), 0 0 55px rgba(255,255,255,0.08);
+}
+
+/* Album art glow + hover zoom */
+.songItem img{
+    transition: 0.3s;
+    box-shadow: 0 0 14px rgba(255,255,255,0.18);
+}
+.songItem:hover img{
+    transform: scale(1.08);
+    box-shadow: 0 0 22px rgba(255,255,255,0.3);
+}
+
+/* Elegant glowing timestamp icons */
+.timestamp i{
+    text-shadow: 0 0 6px rgba(255,255,255,0.3);
+}
+.timestamp i:hover{
+    text-shadow: 0 0 14px rgba(255,255,255,0.5);
+}
+
+/* Stronger glowing songInfo (active song) */
+.songInfo{
+    text-shadow: 0 0 10px rgba(255,255,255,0.35), 0 0 18px rgba(255,255,255,0.15);
+}
+
+/* Animated glowing underline under songInfo */
+.songInfo::after{
+    content: "";
+    display: block;
+    width: 130px;
+    height: 4px;
+    background: rgba(255,255,255,0.5);
+    margin-top: 6px;
+    border-radius: 20px;
+    box-shadow: 0 0 15px rgba(255,255,255,0.7);
+    animation: glowBar 1.8s infinite ease-in-out;
+}
+@keyframes glowBar{
+    0%{ transform: scaleX(0.4); opacity: 0.4; }
+    50%{ transform: scaleX(1); opacity: 1; }
+    100%{ transform: scaleX(0.5); opacity: 0.5; }
+}
+
+/* Volume/Progress bar glow animation */
+#myProgressBar{
+    background: #333;
+    box-shadow: 0 0 12px rgba(255,255,255,0.2);
+}
+#myProgressBar::-webkit-slider-thumb{
+    animation: thumbPulse 2s infinite ease-in-out;
+}
+@keyframes thumbPulse{
+    0%{ box-shadow: 0 0 10px rgba(255,255,255,0.5); }
+    50%{ box-shadow: 0 0 18px rgba(255,255,255,0.8); }
+    100%{ box-shadow: 0 0 10px rgba(255,255,255,0.5); }
+}
+
+/* Strong but clean glow on bottom player */
+.bottom{
+    box-shadow: 0 -8px 25px rgba(255,255,255,0.09);
+}
+
+
+/* --- ADVANCED PREMIUM EFFECTS ADDED --- */
+
+/* Rotating glowing album art when song is playing */
+.songItem img.playing{
+    animation: rotateAlbum 6s linear infinite;
+}
+@keyframes rotateAlbum {
+    0% { transform: rotate(0deg) scale(1.05); }
+    100% { transform: rotate(360deg) scale(1.05); }
+}
+
+/* Glassmorphism background effect */
+.container{
+    background: rgba(20,20,20,0.55);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(255,255,255,0.08);
+}
+
+.bottom{
+    background: rgba(15,15,15,0.65);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+}
+
+/* Ripple click effect on icons */
+.icons i:active{
+    transform: scale(0.85);
+    filter: drop-shadow(0 0 14px rgba(255,255,255,0.4));
+}
+
+/* Neon fading edges for entire screen */
+body::after{
+    content: "";
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0; left: 0;
+    pointer-events: none;
+    background: radial-gradient(circle at top left, rgba(255,255,255,0.08), transparent 70%),
+                radial-gradient(circle at bottom right, rgba(255,255,255,0.05), transparent 80%);
+}
+
+/* Glowing scrollbar */
+::-webkit-scrollbar {
+    width: 10px;
+}
+::-webkit-scrollbar-track {
+    background: #111;
+}
+::-webkit-scrollbar-thumb {
+    background: #444;
+    border-radius: 10px;
+    box-shadow: 0 0 12px rgba(255,255,255,0.2);
+}
+::-webkit-scrollbar-thumb:hover {
+    background: #666;
+    box-shadow: 0 0 20px rgba(255,255,255,0.3);
+}
+
+/* Floating glow particles */
+body::before{
+    animation: floatParticles 18s infinite ease-in-out;
+}
+@keyframes floatParticles {
+    0% { opacity: 0.2; transform: translateY(0px); }
+    50% { opacity: 0.35; transform: translateY(-25px); }
+    100% { opacity: 0.2; transform: translateY(0px); }
+}
+
+/* Smooth hover lift on songItem */
+.songItem:hover{
+    transform: translateY(-4px);
+}
+
+/* Album art hover glow ring */
+.songItem:hover img{
+    box-shadow: 0 0 25px rgba(255,255,255,0.35), 0 0 40px rgba(255,255,255,0.15);
+}
