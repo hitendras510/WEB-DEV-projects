@@ -3,59 +3,69 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Calculator</title>
+    <title>iPhone Calculator</title>
     <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
 
 <div class="flex flex-col items-center text-center">
 
-    <h1 style="margin-bottom: 20px;">Calculatorrrrr!!!</h1>
+    <h1 style="color:white; margin-bottom:20px; font-size:28px;">
+     Calculator by meeeee!!
+    </h1>
 
-    <div class="bg-red mx-auto" style="padding:20px; border-radius:15px;">
+    <div class="bg-red mx-auto">
 
+        <!-- Display -->
         <div class="row">
             <input type="text" id="display">
         </div>
 
+        <!-- Row 1 -->
         <div class="row">
-            <button class="button">AC</button>
-            <button class="button">X</button>
-            <button class="button">%</button>
-            <button class="button">/</button>
+            <button class="button function">AC</button>
+            <button class="button function">+/-</button>
+            <button class="button function">%</button>
+            <button class="button operator">/</button>
         </div>
 
+        <!-- Row 2 -->
         <div class="row">
-            <button class="button">7</button>
-            <button class="button">8</button>
-            <button class="button">9</button>
-            <button class="button">*</button>
+            <button class="button number">7</button>
+            <button class="button number">8</button>
+            <button class="button number">9</button>
+            <button class="button operator">*</button>
         </div>
 
+        <!-- Row 3 -->
         <div class="row">
-            <button class="button">4</button>
-            <button class="button">5</button>
-            <button class="button">6</button>
-            <button class="button">-</button>
+            <button class="button number">4</button>
+            <button class="button number">5</button>
+            <button class="button number">6</button>
+            <button class="button operator">-</button>
         </div>
 
+        <!-- Row 4 -->
         <div class="row">
-            <button class="button">1</button>
-            <button class="button">2</button>
-            <button class="button">3</button>
-            <button class="button">+</button>
+            <button class="button number">1</button>
+            <button class="button number">2</button>
+            <button class="button number">3</button>
+            <button class="button operator">+</button>
         </div>
 
+        <!-- Row 5 -->
         <div class="row">
-            <button class="button">0</button>
-            <button class="button">+/-</button>
-            <button class="button">.</button>
-            <button class="button">=</button>
+            <button class="button number zero">0</button>
+            <button class="button number">.</button>
+            <button class="button operator">=</button>
         </div>
 
     </div>
 </div>
 
+<!-- JavaScript -->
 <script src="script.js"></script>
+
 </body>
 </html>
