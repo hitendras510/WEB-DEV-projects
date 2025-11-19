@@ -3,7 +3,7 @@
 }
 
 .bg-red {
-    background-color: grey;     /* Rename this class later to .bg-grey */
+    background-color: rgb(182, 36, 36);     /* Rename this class later to .bg-grey */
 }
 
 .mx-auto {
