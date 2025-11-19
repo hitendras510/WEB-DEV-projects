@@ -1,28 +1,90 @@
-html, body{
+/* ===========================
+   GLOBAL STYLES
+=========================== */
+html, body {
     height: 100%;
     width: 100%;
-}
-
-.button{
-    padding: 20px;
-    margin:0 3px;
-    border: 2px solid black;
-    border-radius: 9px;
-    cursor: pointer;
-    
-}
-
-.row{
-    margin: 8px 0px;
-}
-.row input{
-    font-size: 20px;
     margin: 0;
-    padding: 10px 0px;
-    border: 2px solid black;
-    border-radius: 5px;
-    width: 97%;
+    background: #535353;
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    padding-top: 20px;
 }
-  
-    
 
+/* ===========================
+   UTILITY CLASSES
+=========================== */
+.text-center { text-align: center; }
+.mx-auto { margin: auto; }
+.flex { display: flex; }
+.flex-col { flex-direction: column; }
+.items-center { align-items: center; }
+
+/* ===========================
+   CALCULATOR BOX (OPTION 1 GRADIENT)
+=========================== */
+.bg-red {
+    background: linear-gradient(145deg, #6f6f6f, #4a4a4a);
+    padding: 20px;
+    border-radius: 20px;
+
+    box-shadow:
+        8px 8px 20px rgba(0, 0, 0, 0.35),
+        -8px -8px 20px rgba(255, 255, 255, 0.05);
+}
+
+/* ===========================
+   INPUT DISPLAY
+=========================== */
+.row input {
+    width: 100%;
+    font-size: 28px;
+    padding: 15px;
+    border-radius: 12px;
+    border: none;
+    background: white;
+    outline: none;
+    margin-bottom: 18px;
+    box-shadow: inset 3px 3px 6px rgba(0,0,0,0.2);
+}
+
+/* ===========================
+   BUTTON ROW
+=========================== */
+.row {
+    display: flex;
+    justify-content: center;
+}
+
+/* ===========================
+   BUTTONS
+=========================== */
+.button {
+    width: 65px;
+    height: 65px;
+    margin: 6px;
+    border-radius: 12px;
+    border: none;
+    background: #e4e4e4;
+    font-size: 20px;
+    cursor: pointer;
+
+    /* Soft neumorphism look */
+    box-shadow:
+        3px 3px 8px rgba(0,0,0,0.3),
+        -3px -3px 8px rgba(255,255,255,0.1);
+
+    transition: 0.15s ease-in-out;
+}
+
+.button:hover {
+    background: #d3d3d3;
+    transform: scale(1.06);
+}
+
+.button:active {
+    transform: scale(0.93);
+    background: #bcbcbc;
+}

@@ -1,21 +1,23 @@
-.text-center{
+.text-center {
     text-align: center;
 }
 
-.bg-red{
-    background-color: red;
+.bg-red {
+    background-color: grey;     /* Rename this class later to .bg-grey */
 }
 
-.mx-auto{
-    margin: auto;
+.mx-auto {
+    margin: auto;              /* Centers block elements horizontally */
 }
 
-.flex{
+.flex {
     display: flex;
 }
-.flex-col{
-    flex-direction: column;
+
+.flex-col {
+    flex-direction: column;    /* Stack items vertically */
 }
-.items-center{
-    align-items: center;
+
+.items-center {
+    align-items: center;       /* Center items inside flex container */
 }
