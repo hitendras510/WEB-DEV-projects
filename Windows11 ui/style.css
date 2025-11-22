@@ -5,4 +5,18 @@
 
 body{
     background-image: url('bg.jpeg');
+    background-size: cover;
+}
+
+.taskBar{
+background-color: #f3f3f3;
+width: 100%;
+position: absolute;
+bottom: 0;
+display: flex;
+justify-content:center; 
+}
+
+.right{
+justify-content: right;
 }
