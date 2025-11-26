@@ -172,21 +172,17 @@
 
     <div class="container">
       <h1>Welcome to our Converter</h1>
-
       <form action="/action.php" method="get">
         <label for="quantity">Enter Amount: </label>
         <input type="number" name="quantity" min="1" max="10000" required />
-
         <label for="currency">Choose a Currency: </label>
         <select name="currency">
           <option value="INR">INR</option>
           <option value="USD">USD</option>
           <option value="EUR">EUR</option>
         </select>
-
         <button class="btn" type="submit">Convert</button>
       </form>
-
       <div class="output">
         <h1>Here is your converted values in different currencies</h1>
 
