@@ -16,18 +16,19 @@
 
       body {
         font-family: "Ubuntu", sans-serif;
-        background: #f5f5f5;
+        background: #f2f2f2;
       }
 
+      /* Navigation Bar */
       nav {
         font-family: "Noto Sans", sans-serif;
         font-weight: 700;
         display: flex;
         justify-content: space-between;
         align-items: center;
-        font-size: 20px;
+        font-size: 16px;
         background-color: antiquewhite;
-        padding: 20px 40px;
+        padding: 15px 40px;
       }
 
       nav ul {
@@ -36,7 +37,7 @@
 
       nav ul li {
         list-style: none;
-        margin: 0 20px;
+        margin: 0 15px;
       }
 
       nav ul li a {
@@ -49,64 +50,111 @@
         transition: 0.3s;
       }
 
+      /* Main container */
       .container {
-        min-height: 80vh;
-        max-width: 800px;
-        margin: 40px auto;
-        padding: 20px;
+        max-width: 600px;
+        margin: 35px auto;
+        padding: 10px;
       }
 
       .container h1 {
         text-align: center;
-        font-size: 36px;
-        margin-bottom: 30px;
+        font-size: 26px;
+        margin-bottom: 25px;
       }
 
+      /* Form Box Styling */
       form {
         display: flex;
         flex-direction: column;
         background: white;
-        padding: 30px;
+        padding: 20px;
         border-radius: 10px;
         box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+        margin-bottom: 35px;
       }
 
       form label {
-        font-size: 22px;
-        margin: 10px 0 5px;
+        font-size: 16px;
+        margin: 10px 0 4px;
       }
 
       form input[type="number"],
       form select {
         background-color: rgb(237, 241, 243);
-        font-size: 20px;
-        width: 50%;
-        padding: 10px;
-        margin-bottom: 20px;
+        font-size: 16px;
+        width: 60%;
+        padding: 8px;
+        margin-bottom: 15px;
         border-radius: 5px;
         border: 1px solid gray;
       }
 
       .btn {
-        padding: 15px;
-        background-color: rgb(237, 241, 243);
-        font-size: 20px;
+        padding: 8px;
+        background-color: rgb(231, 225, 218);
+        font-size: 16px;
+        font-weight: bold;
         border: 2px solid black;
-        border-radius: 10px;
+        border-radius: 15px;
         cursor: pointer;
-        width: 200px;
-        margin: 20px auto;
+        width: 130px;
+        margin: 15px auto;
       }
 
       .btn:hover {
-        background-color: rgb(205, 208, 209);
+        transition: 0.3s;
+        background-color: rgb(202, 215, 215);
       }
 
+    
+      .output h1 {
+        text-align: center;
+        font-size: 22px;
+        margin: 20px 0 20px;
+      }
+
+      /* Compact table */
+      .clean-table {
+        width: 55%;
+        margin: 0 auto 35px auto;
+        border: 2px solid black;
+        border-collapse: separate;
+        border-spacing: 0;
+        background: white;
+        text-align: center;
+        font-size: 14px;
+      }
+
+      .clean-table th {
+        padding: 8px;
+        border: 0;
+        font-weight: bold;
+      }
+
+      .clean-table td {
+        padding: 6px;
+        border: 0;
+      }
+      .output{
+        
+      }
+      .output table{
+        width: 50vw;
+        text-align: center;
+        border: 2px solid black;
+        border-collapse: separate;
+        border-spacing: 0;
+        background: white;
+        text-align: center;
+        font-size: 14px;
+      }
       footer {
         text-align: center;
-        padding: 20px;
+        padding: 10px;
         margin-top: 30px;
         background-color: antiquewhite;
+        font-size: 14px;
         font-weight: bold;
       }
     </style>
@@ -138,11 +186,27 @@
 
         <button class="btn" type="submit">Convert</button>
       </form>
-      <div class="output"></div>
+
+      <div class="output">
+        <h1>Here is your converted values in different currencies</h1>
+
+        <table class="clean-table">
+          <thead>
+            <tr>
+              <th>Currency</th>
+              <th>Currency Code</th>
+              <th>Value</th>
+            </tr>
+          </thead>
+
+          <tbody>
+           
+
+          </tbody>
+        </table>
+      </div>
     </div>
 
-    <footer>
-      Copyright &copy; All Rights Reserved ~ By Hitendra Singh
-    </footer>
+    <footer>Copyright &copy; All Rights Reserved ~ By Hitendra Singh</footer>
   </body>
 </html>
