@@ -3,89 +3,146 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
-    <link rel="stylesheet" href="style.css" />
+    <title>Currency Converter</title>
+
     <style>
-      @import url('https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100..900;1,100..900&family=Science+Gothic:wght@100..900&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap');
+      @import url("https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;700&family=Ubuntu:wght@300;400;500;700&display=swap");
+
       * {
         margin: 0;
         padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: "Ubuntu", sans-serif;
+        background: #f5f5f5;
+      }
+
+      nav {
+        font-family: "Noto Sans", sans-serif;
+        font-weight: 700;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        font-size: 20px;
+        background-color: antiquewhite;
+        padding: 20px 40px;
+      }
+
+      nav ul {
+        display: flex;
+      }
+
+      nav ul li {
+        list-style: none;
+        margin: 0 20px;
+      }
+
+      nav ul li a {
+        text-decoration: none;
+        color: black;
+      }
+
+      nav ul li a:hover {
+        color: rgb(69, 177, 198);
+        transition: 0.3s;
       }
 
       .container {
-        min-height: 100vh;
-        font-family:"Ubuntu", sans-serif;
+        min-height: 80vh;
+        max-width: 800px;
+        margin: 40px auto;
+        padding: 20px;
+      }
+
+      .container h1 {
+        text-align: center;
+        font-size: 36px;
+        margin-bottom: 30px;
+      }
+
+      form {
+        display: flex;
+        flex-direction: column;
+        background: white;
+        padding: 30px;
+        border-radius: 10px;
+        box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+      }
+
+      form label {
+        font-size: 22px;
+        margin: 10px 0 5px;
+      }
+
+      form input[type="number"],
+      form select {
+        background-color: rgb(237, 241, 243);
+        font-size: 20px;
+        width: 50%;
+        padding: 10px;
+        margin-bottom: 20px;
+        border-radius: 5px;
+        border: 1px solid gray;
+      }
+
+      .btn {
+        padding: 15px;
+        background-color: rgb(237, 241, 243);
+        font-size: 20px;
+        border: 2px solid black;
+        border-radius: 10px;
+        cursor: pointer;
+        width: 200px;
+        margin: 20px auto;
+      }
+
+      .btn:hover {
+        background-color: rgb(205, 208, 209);
       }
 
       footer {
         text-align: center;
-      }
-     
-      nav{
-        font-family: 'Noto Sans', sans-serif;
-        font-weight: 800;
-        display: flex;
-        font-size: 20px;
+        padding: 20px;
+        margin-top: 30px;
         background-color: antiquewhite;
-        padding: 23px;
-      }
-
-      nav li a{
-        text-decoration: none;
-        color: black;
-      }
-      nav li a:hover{
-        text-decoration: none;
-        color: rgb(69, 177, 198);
-        transition: all 0.5s ease-in-out;
-      }
-    
-      div.logo{
-        display: flex;
-        margin: 0 23px;
-        justify-content: center;
-        align-items: center;
-     }
-
-      nav ul li{
-        list-style: none;
-       margin: 0px 23px;
-      }
-
-      nav ul{
-        display: flex;
-       
+        font-weight: bold;
       }
     </style>
   </head>
 
   <body>
     <nav>
-        <div class="logo">MyCurrencyConverter</div>
+      <div class="logo">MyCurrencyConverter</div>
       <ul>
         <li><a href="/home">Home</a></li>
-        <li><a href="/about">About us</a></li>
+        <li><a href="/about">About Us</a></li>
         <li><a href="/contact">Contact</a></li>
-
-        
       </ul>
     </nav>
 
     <div class="container">
-       <form action="/action.php" method="get">
-     <select name="currency">
-         <option value="INR">INR</option>
-         <option value="USD">USD</option>
-         <option value="EUR">EUR</option>
-     </select> 
-     <input type="number" name="quantity" min="1" max="10">
+      <h1>Welcome to our Converter</h1>
 
-     <input type="submit" value="submit" />
-       </form>
+      <form action="/action.php" method="get">
+        <label for="quantity">Enter Amount: </label>
+        <input type="number" name="quantity" min="1" max="10000" required />
+
+        <label for="currency">Choose a Currency: </label>
+        <select name="currency">
+          <option value="INR">INR</option>
+          <option value="USD">USD</option>
+          <option value="EUR">EUR</option>
+        </select>
+
+        <button class="btn" type="submit">Convert</button>
+      </form>
+      <div class="output"></div>
     </div>
-    <footer>Copyright &copy: All Rights Reserved ~ By Hitendra Singh</footer>
 
-    <script></script>
-    <script src="main.js"></script>
+    <footer>
+      Copyright &copy; All Rights Reserved ~ By Hitendra Singh
+    </footer>
   </body>
 </html>
