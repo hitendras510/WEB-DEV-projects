@@ -210,36 +210,40 @@
 
     <footer>Copyright &copy; All Rights Reserved ~ By Hitendra Singh</footer>
     <script>
-  const populate = async (value, currency) => {
+  // Top 10 currencies we want
+  const topCurrencies = ["USD", "EUR", "GBP", "JPY", "AUD", "CAD", "CHF", "CNY", "HKD", "SGD"];
 
+  const populate = async (value, currency) => {
     const url =
-      "https://api.currencyapi.com/v3/latest?apikey=cur_live_cRZKbTzcoZYkXRxqMFDkVIaomYUMUyTKKTC4zcMY&base_currency=" + currency;
+      "https://api.currencyapi.com/v3/latest?apikey=cur_live_cRZKbTzcoZYkXRxqMFDkVIaomYUMUyTKKTC4zcMY&base_currency=" +
+      currency;
 
     const response = await fetch(url);
     const rJson = await response.json();
 
     let myStr = "";
 
-    for (let key in rJson.data) {
-      const code = rJson.data[key].code;
-      const rate = rJson.data[key].value;
-      const converted = (rate * value).toFixed(2);
+    for (let key of topCurrencies) {
+      if (rJson.data[key]) {
+        const code = rJson.data[key].code;
+        const rate = rJson.data[key].value;
+        const converted = (rate * value).toFixed(2);
 
-      myStr += `
-        <tr>
-          <td>${key}</td>
-          <td>${code}</td>
-          <td>${converted}</td>
-        </tr>
-      `;
+        myStr += `
+          <tr>
+            <td>${key}</td>
+            <td>${code}</td>
+            <td>${converted}</td>
+          </tr>
+        `;
+      }
     }
 
-    // UPDATE TABLE
     document.querySelector(".clean-table tbody").innerHTML = myStr;
   };
 
   document.querySelector(".btn").addEventListener("click", (e) => {
-    e.preventDefault(); // stop page reload
+    e.preventDefault();
 
     const value = parseInt(document.querySelector("input[name='quantity']").value);
     const currency = document.querySelector("select[name='currency']").value;
