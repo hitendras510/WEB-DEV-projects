@@ -1,0 +1,139 @@
+*{
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins', sans-serif;
+    box-sizing: border-box;
+}
+
+body{
+    overflow-x: hidden;
+}
+
+.container{
+    width: 100%;
+    min-height: 100vh;
+    background: linear-gradient(135deg, #4203a9, #95c0ff);
+    padding: 6% 10%;
+    color: #fff;
+}
+
+/* Glassmorphism Card */
+.calculator{
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(12px);
+    border-radius: 15px;
+    padding: 25px;
+    box-shadow: 0 10px 35px rgba(0, 0, 0, 0.4);
+}
+
+.calculator h1{
+    font-size: 55px;
+}
+
+.calculator h1 span{
+    color: #fff76f;
+}
+
+.input-box{
+    margin-top: 50px;
+    display: flex;
+    gap: 20px;
+    align-items: center;
+}
+
+.input-box input{
+    flex: 1;
+    padding: 14px 18px;
+    font-size: 22px;
+    border-radius: 10px;
+    border: none;
+    outline: none;
+    background: rgba(255,255,255,0.25);
+    color: #fff;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.4);
+    backdrop-filter: blur(12px);
+}
+
+.input-box input::-webkit-calendar-picker-indicator{
+    filter: invert(1);
+    cursor: pointer;
+    background-position: calc(100% - 10px);
+    background-size: 25px;
+}
+
+/* Button */
+.input-box button{
+    padding: 14px 25px;
+    font-size: 22px;
+    border-radius: 10px;
+    background: oklab(95.897% -0.04382 0.15001);
+    border: none;
+    cursor: pointer;
+    transition: 0.3s ease;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.4);
+}
+
+.input-box button:hover{
+    transform: scale(1.1);
+    background: oklab(70.089% -0.03435 0.1005);
+}
+
+/* Result Box (Premium Card) */
+.result-box{
+    margin-top: 40px;
+    padding: 20px;
+    font-size: 26px;
+    color: #fff;
+    border-radius: 12px;
+    background: rgba(255,255,255,0.15);
+    backdrop-filter: blur(10px);
+    box-shadow: 0 10px 35px rgba(0,0,0,0.5);
+    display: inline-block;
+    opacity: 0;
+    transform: translateY(25px);
+    transition: 0.5s ease;
+}
+
+/* Fade Effect */
+.show{
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Smooth Enter Animation */
+.animate{
+    animation: fadeUp 0.99s ease forwards;
+    opacity: 0;
+}
+
+@keyframes fadeUp{
+    0%{
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    100%{
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Responsive */
+@media (max-width: 700px){
+    .container{
+        padding: 10% 5%;
+    }
+
+    .calculator h1{
+        font-size: 40px;
+    }
+
+    .input-box{
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .input-box input,
+    .input-box button{
+        width: 100%;
+    }
+}

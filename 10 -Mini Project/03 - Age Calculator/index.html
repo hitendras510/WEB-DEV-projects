@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Age Calculator</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+
+  <body>
+    <div class="container">
+      <div class="calculator animate">
+        <h1>
+          JavaScript <br />
+          <span>Age Calculator</span>
+        </h1>
+      </div>
+
+      <div class="input-box animate">
+        <input type="date" id="date" />
+        <button onclick="calculateAge()">Calculate</button>
+      </div>
+
+      <div id="result" class="result-box animate"></div>
+    </div>
+
+    <script>
+        let userInput = document.getElementById("date");
+userInput.max = new Date().toISOString().split("T")[0];
+
+function calculateAge() {
+  if (!userInput.value) {
+    document.getElementById("result").innerHTML = "Please select a date!";
+    document.getElementById("result").classList.add("show");
+    return;
+  }
+
+  let birthDate = new Date(userInput.value);
+  let today = new Date();
+
+  let d1 = birthDate.getDate();
+  let m1 = birthDate.getMonth();
+  let y1 = birthDate.getFullYear();
+
+  let d2 = today.getDate();
+  let m2 = today.getMonth();
+  let y2 = today.getFullYear();
+
+  // Days calculation
+  let d3 = d2 - d1;
+  if (d3 < 0) {
+    m2--;
+    d3 += new Date(y2, m2 + 1, 0).getDate();
+  }
+
+  // Months calculation
+  let m3 = m2 - m1;
+  if (m3 < 0) {
+    m3 += 12;
+    y2--;
+  }
+
+  let y3 = y2 - y1;
+
+  let result = document.getElementById("result");
+  result.innerHTML = `You are <b>${y3}</b> years <b>${m3}</b> months <b>${d3}</b> days old`;
+  
+  result.classList.add("show");
+}
+
+    </script>
+  </body>
+</html>
