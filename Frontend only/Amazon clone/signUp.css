@@ -1,0 +1,95 @@
+*{
+  margin: 0;
+  padding: 0;
+}
+
+body{
+  background: #fff;
+  text-align: center;
+}
+nav img{
+  background: rgb(70, 66, 66);
+}
+.login-box{
+  width: 350px;
+  padding: 25px;
+  margin: 25px auto;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  text-align: center;
+}
+
+.login-box h4{
+  margin-bottom: 27px;
+  display: flex;
+  font-size: 20px;
+}
+
+.login-box h2{
+  font-weight: 600;
+  display: flex;
+}
+
+.login-box input{
+      width: 100%;
+    padding: 10px;
+    margin-top: 7px;
+    margin-bottom: 15px;
+    outline: none;
+    border: 1px solid #888;
+    border-radius: 4px;
+    font-size: 14px;
+}
+
+.contine-btn{
+width: 100%;
+    padding: 10px;
+    background: #FFD814;
+    border: 1px solid #FCD200;
+    border-radius: 25px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.contine-btn:hover{
+  background: #c3a71c;
+}
+
+.terms{
+  margin-top: 25px;
+  margin-bottom: 25px;
+}
+
+.terms span{
+  color: #3c98b9;
+}
+
+.terms span:hover{
+  text-decoration: underline;
+}
+
+.terms span{
+  cursor: pointer;
+}
+
+.sign-in{
+  margin-bottom: 15px;
+  font-weight: 600;
+}
+
+.sign-in span{
+  color: #49a2c2;
+}
+
+.sign-in span:hover{
+  text-decoration: underline;
+}
+
+.sign-in span{
+  cursor: pointer;
+}
+
+.cart-footer{
+    margin-top: 250px;
+}
+
