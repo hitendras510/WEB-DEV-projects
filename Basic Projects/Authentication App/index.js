@@ -12,10 +12,11 @@ app.post("/signup",function(req,res){
     const {username,password} = req.body;
     users.push({
       username:username,
-      password:password,
+      password:password
     });
 
     res.json({message:"User Signed up"})
+    console.log(users);
 })
 
 app.post("/signin",function(req,res){
@@ -38,7 +39,28 @@ app.post("/signin",function(req,res){
     }else{
         res.status(401).json({message:"Invalid credentials"})
     }
+    console.log(users)
     
+})
+
+app.get("/me", function(req,res){
+    const token = req.headers.token;
+    let foundUser = null;
+
+    for(let i = 0;i<users.length;i++){
+        if(users[i].token == token){
+            foundUser = users[i];
+        }
+    }
+
+    if(foundUser){
+        res.json({
+            username:foundUser.username,
+            password:foundUser.password
+        })
+    }else{
+        res.json({message:"Invalid token"})
+    }
 })
 
 
