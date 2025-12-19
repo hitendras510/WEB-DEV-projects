@@ -48,9 +48,9 @@ app.post("/signin",function(req,res){
 
 app.get("/me", function(req,res){
     const token = req.headers.token;
-    const decodedInfo = jwt.verify(token,JWT_SECRET); // converting token to object{username:xxxxxxx}
+    const decodedInfo = jwt.decode(token); // converting token to object{username:xxxxxxx}
     const username = decodedInfo.username;
-    
+
     let foundUser = null;
 
     for(let i = 0;i<users.length;i++){
