@@ -1,20 +1,45 @@
 const express = require("express");
 const app = express();
+app.use(express.json());
 
+const users = [];
+
+const generateToken = () => {
+    return Math.random().toString(36).substring(2);
+}
 
 app.post("/signup",function(req,res){
-    res.json({
-        mess
-    })
+    const {username,password} = req.body;
+    users.push({
+      username:username,
+      password:password,
+    });
 
+    res.json({message:"User Signed up"})
 })
 
 app.post("/signin",function(req,res){
+    const username = req.body.username;
+    const password = req.body.password;
 
+    let founderUser = null;
 
+    for(let i= 0; i<users.length;i++){
+        if(users[i].username == username && users[i].password == password){
+            founderUser = users[i];
+            break;
+        }
+    }
+    
+    if(founderUser){
+        const token = generateToken();
+        founderUser.token = token;
+        res.json({message:"User Signed in",token})
+    }else{
+        res.status(401).json({message:"Invalid credentials"})
+    }
+    
 })
-
-
 
 
 app.listen(3000, () => {
