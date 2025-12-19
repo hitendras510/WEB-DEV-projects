@@ -1,12 +1,15 @@
 const express = require("express");
+const jwt = require("jsonwebtoken");
+const JWT_SECRET = "secret";
 const app = express();
 app.use(express.json());
 
 const users = [];
 
-const generateToken = () => {
-    return Math.random().toString(36).substring(2);
-}
+// const generateToken = () => {
+//     return Math.random().toString(36).substring(2);
+// }
+//add JWT = json web token
 
 app.post("/signup",function(req,res){
     const {username,password} = req.body;
@@ -33,8 +36,8 @@ app.post("/signin",function(req,res){
     }
     
     if(founderUser){
-        const token = generateToken();
-        founderUser.token = token;
+        const token = jwt.sign({username:founderUser.username},JWT_SECRET,{expiresIn:"1h"});
+        // founderUser.token = token;
         res.json({message:"User Signed in",token})
     }else{
         res.status(401).json({message:"Invalid credentials"})
@@ -45,10 +48,13 @@ app.post("/signin",function(req,res){
 
 app.get("/me", function(req,res){
     const token = req.headers.token;
+    const decodedInfo = jwt.verify(token,JWT_SECRET); // converting token to object{username:xxxxxxx}
+    const username = decodedInfo.username;
+    
     let foundUser = null;
 
     for(let i = 0;i<users.length;i++){
-        if(users[i].token == token){
+        if(users[i].username == username){
             foundUser = users[i];
         }
     }
