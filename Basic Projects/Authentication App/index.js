@@ -46,7 +46,7 @@ app.post("/signin",logger,function(req,res){
     }
     
     if(founderUser){
-        const token = jwt.sign({username:users[i].username},JWT_SECRET,{expiresIn:"1h"});
+        const token = jwt.sign({username:founderUser.username},JWT_SECRET,{expiresIn:"1h"});
         // founderUser.token = token;
         res.json({message:"User Signed in",token})
     }else{
