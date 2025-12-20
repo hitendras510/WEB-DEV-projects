@@ -11,7 +11,12 @@ const users = [];
 // }
 //add JWT = json web token
 
-app.post("/signup",function(req,res){
+function logger(req,res,next){
+    console.log(req.method+"request came")
+    next();
+}
+
+app.post("/signup",logger,function(req,res){
     const {username,password} = req.body;
     users.push({
       username:username,
@@ -22,7 +27,7 @@ app.post("/signup",function(req,res){
     console.log(users);
 })
 
-app.post("/signin",function(req,res){
+app.post("/signin",logger,function(req,res){
     const username = req.body.username;
     const password = req.body.password;
 
@@ -46,27 +51,34 @@ app.post("/signin",function(req,res){
     
 })
 
-app.get("/me", function(req,res){
-    const token = req.headers.token;
-    const decodedInfo = jwt.verify(token,JWT_SECRET); // converting token to object{username:xxxxxxx}
-    const username = decodedInfo.username;
+function auth(req,res,next){
+const token = req.headers.token; //Extracting token from header
+const decodedData = jwt.verify(token,JWT_SECRET); // check token correct or not
+if(decodedData.username){
+    req.username = decodedData.username;
+    next();
+}else{
+    res.status(401).json({message:"Invalid credentials"})
+}
+}
 
+app.get("/me",logger,auth, function(req,res){
+    const currentUser = req.username;
     let foundUser = null;
 
     for(let i = 0;i<users.length;i++){
-        if(users[i].username == username){
+        if(users[i].username == currentUser){
             foundUser = users[i];
         }
     }
+    res.json({
+        username:foundUser.username,
+        password:foundUser.password
+    })
+})
 
-    if(foundUser){
-        res.json({
-            username:foundUser.username,
-            password:foundUser.password
-        })
-    }else{
-        res.json({message:"Invalid token"})
-    }
+app.get("/todo",logger,auth, function(req,res){
+    
 })
 
 
